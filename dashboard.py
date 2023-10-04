@@ -23,6 +23,10 @@ col1.plotly_chart(fig_date)
 fig_prod = px.bar(df_filtered, x="Quantity", y="Product line", title="Faturamento por Produto", orientation="h")
 col2.plotly_chart(fig_prod)
 
+city_total = df_filtered.groupby("City")[["Total"]].sum().reset_index()
+fig_city = px.bar(df_filtered, x="City", y="Total", title="Faturamento por filial",color="City")
+col3.plotly_chart(fig_city)
+
 
 #visão mensal
 #faturamento por unidade
